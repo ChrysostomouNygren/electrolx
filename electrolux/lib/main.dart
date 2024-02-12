@@ -33,13 +33,14 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            SelectableItem('Cotton Eco'),
-            SelectableItem('Cottons'),
-            SelectableItem('Synthetics'),
-            SelectableItem('Mixed+'),
-            SelectableItem('Delicates'),
-            SelectableItem('Sports'),
-            SelectableItem('Bed linen XL'),
+            // TODO import strings from separate variable.
+            SelectableItem('Cotton Eco', 'Cupboard-dries cottons with maximum energy saving'),
+            SelectableItem('Cottons', '100% cotton fabrics'),
+            SelectableItem('Synthetics', 'For a mix of mostly synthetics fabrics, like polyester, or polyamide.'),
+            SelectableItem('Mixed+', "Cotton, cotton.synthetic blends, and synthetics that don't need ironing."),
+            SelectableItem('Delicates', 'Viscose, rayon, acrylic, and other blends.'),
+            SelectableItem('Sports', 'Athletic clothes made of synthetics like polyester, elastane, or polyamide.'),
+            SelectableItem('Bed linen XL', 'Up to 2 single and 1 double sets of bedding.'),
           ],
         ),
       ),

@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class SelectableItem extends StatefulWidget {
   final String title;
-const SelectableItem(String this.title,);
+  final String subtitle;
+const SelectableItem(this.title, this.subtitle, {super.key});
 
   @override
   State<SelectableItem> createState() => _SelectableItemState();
@@ -16,10 +17,9 @@ bool isChecked = false;
       
   isChecked = !isChecked;
     });
-    print(widget.title);
   }
   @override
   Widget build(BuildContext context) {
-    return Row(children: [Text(widget.title), Checkbox(value: isChecked, onChanged: (bool? value){_onCheck();})],);
+    return GestureDetector(onTap: (){_onCheck();}, child: ListTile(title: Text(widget.title), subtitle: isChecked ? Text(widget.subtitle) : const SizedBox.shrink(),));
   }
 }
