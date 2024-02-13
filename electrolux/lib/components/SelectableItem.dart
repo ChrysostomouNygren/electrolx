@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class SelectableItem extends StatefulWidget {
   final String title;
   final String subtitle;
-const SelectableItem(this.title, this.subtitle, {super.key});
+  final String asset;
+const SelectableItem(this.title, this.subtitle, this.asset, {super.key});
 
   @override
   State<SelectableItem> createState() => _SelectableItemState();
@@ -26,6 +27,7 @@ bool isChecked = false;
       },
       title: Text(widget.title),
       subtitle: isChecked ? Text(widget.subtitle) : null,
+      leading: Image.asset(widget.asset),
     );
   }
 }
