@@ -25,8 +25,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-// add img-asset
+  
   List listItems = [
     ['Cotton Eco', 'Cupboard-dries cottons with maximum energy saving', 'Cotton.png'],
     ['Cottons', '100% cotton fabrics', 'Cotton.png'],
@@ -41,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
         child: ListView.builder(itemCount: listItems.length, itemBuilder: (BuildContext context, int index){
-          return SelectableItem(listItems[index][0], listItems[index][1], listItems[index][2]);
+          return SelectableItem(listItems[index][0], listItems[index][1], listItems[index][2], index);
         })
       ),
 
