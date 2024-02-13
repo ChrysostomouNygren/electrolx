@@ -26,23 +26,23 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+// add img-asset
+  List listItems = [
+    ['Cotton Eco', 'Cupboard-dries cottons with maximum energy saving'],
+    ['Cottons', '100% cotton fabrics'],
+    ['Synthetics', 'For a mix of mostly synthetics fabrics, like polyester, or polyamide.'],
+    ['Delicates', 'Viscose, rayon, acrylic, and other blends.'],
+    ['Sports', 'Athletic clothes made of synthetics like polyester, elastane, or polyamide.'],
+    ['Bed linen XL', 'Up to 2 single and 1 double sets of bedding.']
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            // TODO import strings from separate variable.
-            SelectableItem('Cotton Eco', 'Cupboard-dries cottons with maximum energy saving'),
-            SelectableItem('Cottons', '100% cotton fabrics'),
-            SelectableItem('Synthetics', 'For a mix of mostly synthetics fabrics, like polyester, or polyamide.'),
-            SelectableItem('Mixed+', "Cotton, cotton.synthetic blends, and synthetics that don't need ironing."),
-            SelectableItem('Delicates', 'Viscose, rayon, acrylic, and other blends.'),
-            SelectableItem('Sports', 'Athletic clothes made of synthetics like polyester, elastane, or polyamide.'),
-            SelectableItem('Bed linen XL', 'Up to 2 single and 1 double sets of bedding.'),
-          ],
-        ),
+        child: ListView.builder(itemCount: listItems.length, itemBuilder: (BuildContext context, int index){
+          return SelectableItem(listItems[index][0], listItems[index][1]);
+        })
       ),
 
     );

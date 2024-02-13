@@ -20,6 +20,12 @@ bool isChecked = false;
   }
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(onTap: (){_onCheck();}, child: ListTile(title: Text(widget.title), subtitle: isChecked ? Text(widget.subtitle) : const SizedBox.shrink(),));
+    return ListTile(
+      onTap: () {
+        _onCheck();
+      },
+      title: Text(widget.title),
+      subtitle: isChecked ? Text(widget.subtitle) : null,
+    );
   }
 }
