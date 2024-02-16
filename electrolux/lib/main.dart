@@ -25,6 +25,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  bool enable = true;
   
   List listItems = [
     ['Cotton Eco', 'Cupboard-dries cottons with maximum energy saving', 'Cotton.png'],
@@ -40,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       body: Center(
         child: ListView.builder(itemCount: listItems.length, itemBuilder: (BuildContext context, int index){
-          return SelectableItem(listItems[index][0], listItems[index][1], listItems[index][2], index);
+          return SelectableItem(listItems[index][0], listItems[index][1], listItems[index][2], index, enable);
         })
       ),
 

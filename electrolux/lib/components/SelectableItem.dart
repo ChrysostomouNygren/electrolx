@@ -5,19 +5,28 @@ class SelectableItem extends StatefulWidget {
   final String subtitle;
   final String asset;
   final int index;
+  final bool enable;
   
-  const SelectableItem(this.title, this.subtitle, this.asset, this.index, {super.key});
+  const SelectableItem(this.title, this.subtitle, this.asset, this.index, this.enable, {super.key});
 
   @override
   State<SelectableItem> createState() => _SelectableItemState();
 }
 
 class _SelectableItemState extends State<SelectableItem> {
-bool isChecked = false;
+  bool showSubtitle = false;
+  bool? disable;
 
   void _onCheck() {
     setState(() {
-      isChecked = !isChecked;
+      showSubtitle = true;
+
+    });
+  }
+
+  void _disable(){
+    setState(() {
+      disable = false;
     });
   }
   @override
@@ -25,14 +34,12 @@ bool isChecked = false;
     return ListTile(
       onTap: () {
         _onCheck();
+        _disable();
       },
       title: Text(widget.title),
-      subtitle: isChecked ? Text(widget.subtitle) : null,
+      subtitle: showSubtitle ? Text(widget.subtitle) : null,
       leading: Image.asset(widget.asset),
-      // fix this in the morning pls :)
-      // *******************************
-      enabled: isChecked ? true : false,
-      // *******************************
+      enabled: disable == null ? widget.enable : disable!,
     );
   }
 }
